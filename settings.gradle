@@ -1,0 +1,6 @@
+include ':violake:arse-core'
+include ':violake:violake-android'
+include ':violake:violake-android-ext'
+
+include ':example:example-app'
+include ':example:example-core'
