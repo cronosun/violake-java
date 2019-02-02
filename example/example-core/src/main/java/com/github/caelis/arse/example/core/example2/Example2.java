@@ -1,16 +1,14 @@
-package com.github.caelis.arse.example.core;
+package com.github.caelis.arse.example.core.example2;
 
 import org.reactivestreams.Publisher;
 
 import io.reactivex.Flowable;
 import io.reactivex.processors.BehaviorProcessor;
 
-/**
- * // TODO: Maybe remove that with even odd... maybe already too complicated
- * <p>
+/***
  * Controller for example 1.
  */
-public final class Example1 {
+public final class Example2 {
 
     private final BehaviorProcessor<Integer> clickCount = BehaviorProcessor.createDefault(0);
     private final BehaviorProcessor<EvenClickCountManipulation> evenClickCountManipulation =
@@ -54,7 +52,7 @@ public final class Example1 {
         private EvenClickCountManipulation() {
         }
 
-        static class NotManipulated extends EvenClickCountManipulation {
+        static class NotManipulated extends Example2.EvenClickCountManipulation {
             private NotManipulated() {
             }
 
@@ -64,7 +62,7 @@ public final class Example1 {
         /**
          * User manually manipulated the 'is even click count'.
          */
-        static class Manipulated extends EvenClickCountManipulation {
+        static class Manipulated extends Example2.EvenClickCountManipulation {
             private final boolean isEvenClickCount;
 
             Manipulated(boolean isEvenClickCount) {

@@ -1,12 +1,12 @@
 package com.github.caelis.arse.android.std;
 
+import com.github.caelis.arse.android.Applicator;
 import com.github.caelis.arse.android.Event;
 import com.github.caelis.arse.core.Disposable;
-import com.github.caelis.arse.android.Applicator;
 
 import androidx.annotation.Nullable;
 
-final class DataApplication implements Application {
+final class DataApplication implements SingleApplication {
 
     private final Companion companion;
     private final Applicator applicator;
@@ -24,11 +24,17 @@ final class DataApplication implements Application {
     public void setActive(boolean active) {
         // TODO: Report exceptions
         if (active) {
+            removeCurrentDisposable();
             setDisposable(
                     applicator.apply(companion.arse, Event.RESUME, companion.view, data));
         } else {
             removeCurrentDisposable();
         }
+    }
+
+    @Override
+    public Object duplicate() {
+        return this;
     }
 
     private void setDisposable(Disposable disposable) {
@@ -53,5 +59,28 @@ final class DataApplication implements Application {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataApplication that = (DataApplication) o;
+
+        // reference equality
+        return this.data == that.data &&
+                this.applicator == that.applicator &&
+                this.companion == that.companion;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        // will do reference equality on those 3 objects
+        result = 31 * result + System.identityHashCode(this.data);
+        result = 31 * result + System.identityHashCode(this.applicator);
+        result = 31 * result + System.identityHashCode(this.companion);
+
+        return result;
     }
 }

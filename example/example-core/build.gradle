@@ -2,4 +2,5 @@ apply plugin: 'java'
 
 dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    compile project(path: ':violake:violake-core')
 }

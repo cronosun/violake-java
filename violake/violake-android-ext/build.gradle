@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    api project(':violake:arse-core')
+    api project(':violake:violake-core')
     api project(':violake:violake-android')
-
+    compileOnly "androidx.annotation:annotation:1.0.1"
 }

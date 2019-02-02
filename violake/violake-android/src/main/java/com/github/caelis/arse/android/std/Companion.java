@@ -2,26 +2,26 @@ package com.github.caelis.arse.android.std;
 
 import android.view.View;
 
-import com.github.caelis.arse.core.Disposable;
 import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Arse;
 import com.github.caelis.arse.android.R;
+import com.github.caelis.arse.android.Violake;
+import com.github.caelis.arse.core.Disposable;
 
 import org.reactivestreams.Publisher;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.core.view.ViewCompat;
 import io.reactivex.Flowable;
 
 final class Companion implements View.OnAttachStateChangeListener {
 
-    final Arse arse;
+    final Violake arse;
     final View view;
-    private Set<Application> applications;
+    private Map<Object, SingleApplication> applications;
 
-    Companion(Arse arse, View view) {
+    Companion(Violake arse, View view) {
         this.arse = arse;
         this.view = view;
         init();
@@ -34,28 +34,24 @@ final class Companion implements View.OnAttachStateChangeListener {
     Disposable apply(
             Applicator applicator,
             Publisher data) {
-        // TODO: Prevent duplicate application
         StreamApplication streamApplication = new StreamApplication(
                 this, applicator, Flowable.fromPublisher(data));
-        addApplicationAndSetActivation(streamApplication);
-        return streamApplication;
+        return addApplicationAndSetActivation(streamApplication);
     }
 
     Disposable apply(
             Applicator applicator,
             Object data) {
-        // TODO: Prevent duplicate application
         DataApplication dataApplication = new DataApplication(this, applicator, data);
-        addApplicationAndSetActivation(dataApplication);
-        return dataApplication;
+        return addApplicationAndSetActivation(dataApplication);
     }
 
     private void setAttachState(boolean attached) {
         // need to update all applications
-        final Set<Application> local = this.applications;
+        final Map<Object, SingleApplication> local = this.applications;
         if (local != null) {
             // TODO: We need to handle concurrent modifications!
-            for (Application application : local) {
+            for (SingleApplication application : local.values()) {
                 application.setActive(attached);
             }
         }
@@ -71,7 +67,7 @@ final class Companion implements View.OnAttachStateChangeListener {
         setAttachState(false);
     }
 
-    static Companion companionFor(Arse arse, View view) {
+    static Companion companionFor(Violake arse, View view) {
         final Object tagObject = view.getTag(R.id.violake_companion_id);
         if (tagObject instanceof Companion) {
             return (Companion) tagObject;
@@ -82,22 +78,30 @@ final class Companion implements View.OnAttachStateChangeListener {
         }
     }
 
-    private void addApplicationAndSetActivation(Application application) {
-        Set<Application> local = this.applications;
+    private Disposable addApplicationAndSetActivation(SingleApplication application) {
+        Map<Object, SingleApplication> local = this.applications;
         if (local == null) {
-            local = this.applications = new HashSet<>(5);
+            local = this.applications = new HashMap<>(5);
         }
-        local.add(application);
-        application.setActive(isAttached());
+        // we do not add duplicate applications
+        final SingleApplication existingApplication = local.get(application.duplicate());
+        if (existingApplication != null) {
+            // nope, it's a duplicate
+            return existingApplication;
+        } else {
+            local.put(application.duplicate(), application);
+            application.setActive(isAttached());
+            return application;
+        }
     }
 
     void removeApplication(
-            Application application,
+            SingleApplication application,
             boolean expectToHaveRegistration) {
-        final Set<Application> local = this.applications;
+        final Map<Object, SingleApplication> local = this.applications;
         final boolean removed;
         if (local != null) {
-            removed = local.remove(application);
+            removed = local.remove(application.duplicate()) != null;
         } else {
             removed = false;
         }

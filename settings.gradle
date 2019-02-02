@@ -1,4 +1,4 @@
-include ':violake:arse-core'
+include ':violake:violake-core'
 include ':violake:violake-android'
 include ':violake:violake-android-ext'
 

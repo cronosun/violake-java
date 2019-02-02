@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.github.caelis.arse.android.Event;
 import com.github.caelis.arse.core.Disposable;
 import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Arse;
+import com.github.caelis.arse.android.Violake;
 
 import javax.annotation.Nullable;
 
@@ -22,7 +22,7 @@ public final class SetText implements Applicator<TextView, CharSequence> {
     }
 
     @Override
-    public Disposable apply(Arse arse, Event event, TextView target, CharSequence data) {
+    public Disposable apply(Violake arse, Event event, TextView target, CharSequence data) {
         arse.traceOperation(this, target, data, "compare");
         if (!areEqual(target.getText(), data)) {
             arse.traceOperation(this, target, data, "set text");

@@ -5,7 +5,7 @@ import android.widget.CompoundButton;
 import com.github.caelis.arse.android.Event;
 import com.github.caelis.arse.core.Disposable;
 import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Arse;
+import com.github.caelis.arse.android.Violake;
 
 public final class SetChecked implements Applicator<CompoundButton, Boolean> {
 
@@ -19,7 +19,7 @@ public final class SetChecked implements Applicator<CompoundButton, Boolean> {
     }
 
     @Override
-    public Disposable apply(Arse arse, Event event, CompoundButton target, Boolean checked) {
+    public Disposable apply(Violake arse, Event event, CompoundButton target, Boolean checked) {
         arse.traceOperation(this, target, checked, "is checked?");
         if (target.isChecked() != checked) {
             arse.traceOperation(this, target, checked, "set checked");

@@ -2,19 +2,19 @@ package com.github.caelis.arse.android;
 
 import android.view.View;
 
-import com.github.caelis.arse.core.ArseCore;
+import com.github.caelis.arse.core.ViolakeCore;
 import com.github.caelis.arse.core.Disposable;
 
 import org.reactivestreams.Publisher;
 
 import javax.annotation.CheckReturnValue;
 
-public interface Arse extends ArseCore {
-    static Arse get() {
+public interface Violake extends ViolakeCore {
+    static Violake get() {
         return InstanceHolder.INSTANCE.require();
     }
 
-    static void setInstance(Arse arse) {
+    static void setInstance(Violake arse) {
         InstanceHolder.INSTANCE.set(arse);
     }
 
@@ -34,6 +34,11 @@ public interface Arse extends ArseCore {
             Applicator<TTarget, TData> applicator,
             TTarget target,
             TData data,
+            String text);
+
+    <TTarget extends View, TData> void traceOperation(
+            Applicator<TTarget, TData> applicator,
+            TTarget target,
             String text);
 
 

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dingsapp</string>
+    <string name="menuEntryGoButtonText">Show</string>
+    <string name="odd_image">Odd Image</string>
+    <string name="even_image">Even Image</string>
+    <string name="click_me">Click me!</string>
+    <string name="even_click_count">Even click count</string>
 </resources>
