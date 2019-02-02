@@ -2,8 +2,8 @@ package com.github.caelis.arse.android;
 
 import android.view.View;
 
-import com.github.caelis.arse.core.ViolakeCore;
 import com.github.caelis.arse.core.Disposable;
+import com.github.caelis.arse.core.ViolakeCore;
 
 import org.reactivestreams.Publisher;
 
@@ -20,13 +20,13 @@ public interface Violake extends ViolakeCore {
 
     @CheckReturnValue
     <TTarget extends View, TData> Disposable apply(
-            Applicator<TTarget, TData> applicator,
+            Applicator<? extends TTarget, ? extends TData> applicator,
             TTarget target,
             Publisher<? extends TData> stream);
 
     @CheckReturnValue
     <TTarget extends View, TData> Disposable apply(
-            Applicator<TTarget, TData> applicator,
+            Applicator<? extends TTarget, ? extends TData> applicator,
             TTarget target,
             TData data);
 

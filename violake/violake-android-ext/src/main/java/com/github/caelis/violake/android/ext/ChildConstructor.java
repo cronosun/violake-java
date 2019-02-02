@@ -4,6 +4,8 @@ import androidx.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.function.Supplier;
+
 import javax.annotation.Nullable;
 
 /**
@@ -26,4 +28,9 @@ public interface ChildConstructor<T extends View> {
     static <T extends View> ChildConstructor<T> layout(@LayoutRes int resource) {
         return new ChildConstructors.Inflater<T>(resource);
     }
+
+    static <T extends View> ChildConstructor<T> simple(SimpleChildConstructor<T> simple) {
+        return ChildConstructors.simple(simple);
+    }
+
 }

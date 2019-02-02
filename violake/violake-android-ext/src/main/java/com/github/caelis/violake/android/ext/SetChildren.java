@@ -89,7 +89,7 @@ public class SetChildren<TChild extends View, TChildData> implements
     }
 
     private TChild getOrConstruct(Violake violake, ViewGroup parent, @Nullable View child) {
-        final ChildConstructor<TChild> constructor = configuration.constructor;
+        final ChildConstructor<? extends TChild> constructor = configuration.constructor;
         TChild newOrRecycledChild = constructor.constructOrRecycle(parent, child);
         if (newOrRecycledChild != child) {
             violake.traceOperation(this, parent, "created a new child");
@@ -98,20 +98,20 @@ public class SetChildren<TChild extends View, TChildData> implements
     }
 
     public static final class Configuration<TChild extends View, TChildData> {
-        private final Applicator<TChild, TChildData> applicator;
-        private final ChildConstructor<TChild> constructor;
+        private final Applicator<? extends TChild, ? extends TChildData> applicator;
+        private final ChildConstructor<? extends TChild> constructor;
         private final int startAtIndex;
         private final boolean removeOtherChildren;
 
         public Configuration(
-                Applicator<TChild, TChildData> applicator,
-                ChildConstructor<TChild> constructor) {
+                Applicator<? extends TChild, ? extends TChildData> applicator,
+                ChildConstructor<? extends TChild> constructor) {
             this(applicator, constructor, 0, true);
         }
 
         public Configuration(
-                Applicator<TChild, TChildData> applicator,
-                ChildConstructor<TChild> constructor,
+                Applicator<? extends TChild, ? extends TChildData> applicator,
+                ChildConstructor<? extends TChild> constructor,
                 int startAtIndex,
                 boolean removeOtherChildren) {
             this.applicator = applicator;
@@ -120,11 +120,11 @@ public class SetChildren<TChild extends View, TChildData> implements
             this.removeOtherChildren = removeOtherChildren;
         }
 
-        public Applicator<TChild, TChildData> getApplicator() {
+        public Applicator<? extends TChild, ? extends TChildData> getApplicator() {
             return applicator;
         }
 
-        public ChildConstructor<TChild> getConstructor() {
+        public ChildConstructor<? extends TChild> getConstructor() {
             return constructor;
         }
 

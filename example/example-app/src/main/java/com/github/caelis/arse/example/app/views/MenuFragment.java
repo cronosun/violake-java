@@ -28,8 +28,9 @@ public class MenuFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.menu_fragment, container, false);
 
+        final ViewGroup menuEntriesContainer = view.findViewById(R.id.mainActivityMenuEntriesList);
         final MenuEntries menuEntries = MenuEntriesProvider.createMenuEntries(this::navigateTo);
-        Violake.get().apply(SET_CHILDREN, view, menuEntries.getMenuEntryList());
+        Violake.get().apply(SET_CHILDREN, menuEntriesContainer, menuEntries.getMenuEntryList());
 
         return view;
     }

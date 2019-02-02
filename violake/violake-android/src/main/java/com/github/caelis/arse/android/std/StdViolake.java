@@ -14,12 +14,18 @@ import java.util.List;
 public class StdViolake implements Violake {
 
     @Override
-    public <TTarget extends View, TData> Disposable apply(Applicator<TTarget, TData> applicator, TTarget target, Publisher<? extends TData> stream) {
+    public <TTarget extends View, TData> Disposable apply(
+            Applicator<? extends TTarget, ?extends TData> applicator,
+            TTarget target,
+            Publisher<? extends TData> stream) {
         return Companion.companionFor(this, target).apply(applicator, stream);
     }
 
     @Override
-    public <TTarget extends View, TData> Disposable apply(Applicator<TTarget, TData> applicator, TTarget target, TData data) {
+    public <TTarget extends View, TData> Disposable apply(
+            Applicator<? extends TTarget, ?extends TData> applicator,
+            TTarget target,
+            TData data) {
         return Companion.companionFor(this, target).apply(applicator, data);
     }
 

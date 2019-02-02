@@ -1,6 +1,5 @@
 package com.github.caelis.violake.android.ext;
 
-import androidx.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +8,15 @@ import com.github.caelis.arse.android.ext.R;
 
 import javax.annotation.Nullable;
 
+import androidx.annotation.LayoutRes;
+
 final class ChildConstructors {
 
     private ChildConstructors() {
+    }
+
+    static <T extends View> ChildConstructor<T> simple(SimpleChildConstructor<T> simple) {
+        return new Simple<>(simple);
     }
 
     static class Inflater<T extends View> extends DefaultChildConstructor<T> {
@@ -48,6 +53,26 @@ final class ChildConstructors {
         @Override
         public int hashCode() {
             return resource;
+        }
+    }
+
+    private static class Simple<T extends View> extends DefaultChildConstructor<T> {
+
+        private final SimpleChildConstructor<T> simple;
+
+        private Simple(SimpleChildConstructor<T> simple) {
+            this.simple = simple;
+        }
+
+        @Override
+        protected T constructInternal(ViewGroup parent) {
+            return simple.construct(parent);
+        }
+
+        @Nullable
+        @Override
+        protected Object discriminator() {
+            return simple;
         }
     }
 

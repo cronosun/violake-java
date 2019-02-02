@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/example3_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/example3_completed_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Todo Text" />
+
+    <ImageView
+        android:id="@+id/example3_completed_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/done"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_check_box_black_24dp"
+        tools:tint="?android:attr/colorAccent" />
+
+    <ImageView
+        android:id="@+id/example3_not_done_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/done"
+        android:tint="?android:attr/colorControlNormal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_check_box_outline_blank_black_24dp" />
+
+    <TextView
+        android:id="@+id/example3_created_at_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/created_at"
+
+        app:layout_constraintStart_toEndOf="@id/example3_completed_icon"
+        app:layout_constraintTop_toBottomOf="@id/example3_item_title" />
+
+    <TextView
+        android:id="@+id/example3_created_at"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/example3_created_at_label"
+        app:layout_constraintTop_toTopOf="@id/example3_created_at_label"
+
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="35dp"
+        tools:text="25 min ago (2018-01-2018)" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/example3_created_at">
+
+        <ImageButton
+            android:id="@+id/example3_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:tint="?android:attr/colorControlNormal"
+            android:src="@drawable/ic_delete_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/example3_done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:tint="?android:attr/colorControlNormal"
+            android:src="@drawable/ic_check_box_black_24dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

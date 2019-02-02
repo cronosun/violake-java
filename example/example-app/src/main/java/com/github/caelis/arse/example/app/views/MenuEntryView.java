@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 
 import androidx.cardview.widget.CardView;
 
+// TODO: This is the wrong way around... We should inflate the layout in this component...
 public class MenuEntryView extends CardView {
     public MenuEntryView(Context context) {
         super(context);

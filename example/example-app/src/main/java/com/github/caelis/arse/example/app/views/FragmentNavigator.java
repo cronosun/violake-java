@@ -1,6 +1,7 @@
 package com.github.caelis.arse.example.app.views;
 
 import com.github.caelis.arse.example.app.R;
+import com.github.caelis.arse.example.app.views.exampe3.Example3Fragment;
 import com.github.caelis.arse.example.app.views.example1.Example1Fragment;
 import com.github.caelis.arse.example.app.views.example2.Example2Fragment;
 import com.github.caelis.arse.example.core.MenuEntriesProvider;
@@ -25,6 +26,7 @@ public final class FragmentNavigator {
         local.put(MAIN, MenuFragment::new);
         local.put(MenuEntriesProvider.EXAMPLE1, Example1Fragment::new);
         local.put(MenuEntriesProvider.EXAMPLE2, Example2Fragment::new);
+        local.put(MenuEntriesProvider.EXAMPLE3, Example3Fragment::new);
 
         fragments = local;
     }

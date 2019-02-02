@@ -5,4 +5,6 @@
     <string name="even_image">Even Image</string>
     <string name="click_me">Click me!</string>
     <string name="even_click_count">Even click count</string>
+    <string name="done">Done</string>
+    <string name="created_at">Created:</string>
 </resources>
