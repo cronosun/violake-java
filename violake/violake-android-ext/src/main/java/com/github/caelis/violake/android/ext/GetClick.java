@@ -2,10 +2,10 @@ package com.github.caelis.violake.android.ext;
 
 import android.view.View;
 
-import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Violake;
-import com.github.caelis.arse.android.Event;
-import com.github.caelis.arse.core.Disposable;
+import com.github.caelis.violake.android.Applicator;
+import com.github.caelis.violake.android.Violake;
+import com.github.caelis.violake.android.Event;
+import com.github.caelis.violake.core.Disposable;
 
 public final class GetClick implements Applicator<View, Runnable> {
 
@@ -19,8 +19,8 @@ public final class GetClick implements Applicator<View, Runnable> {
     }
 
     @Override
-    public Disposable apply(Violake arse, Event event, View view, Runnable data) {
-        arse.traceOperation(this, view, data, "get click");
+    public Disposable apply(Violake violake, Event event, View view, Runnable data) {
+        violake.traceOperation(this, view, data, "get click");
 
         view.setOnClickListener(v -> data.run());
 

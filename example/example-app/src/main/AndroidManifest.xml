@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.caelis.arse.example.app">
+    package="com.github.caelis.violake.example.app">
 
     <application
         android:allowBackup="true"

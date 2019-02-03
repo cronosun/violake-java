@@ -2,10 +2,10 @@ package com.github.caelis.violake.android.ext;
 
 import android.widget.CompoundButton;
 
-import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Violake;
-import com.github.caelis.arse.android.Event;
-import com.github.caelis.arse.core.Disposable;
+import com.github.caelis.violake.android.Applicator;
+import com.github.caelis.violake.android.Violake;
+import com.github.caelis.violake.android.Event;
+import com.github.caelis.violake.core.Disposable;
 
 import java8.util.function.Consumer;
 
@@ -22,12 +22,12 @@ public final class GetChecked implements Applicator<CompoundButton, Consumer<Boo
 
     @Override
     public Disposable apply(
-            Violake arse, Event event, CompoundButton target, Consumer<Boolean> checked) {
+            Violake violake, Event event, CompoundButton target, Consumer<Boolean> checked) {
 
         checked.accept(target.isChecked());
         target.setOnCheckedChangeListener((buttonView, isChecked) -> checked.accept(isChecked));
 
-        return arse.disposableFrom(() -> {
+        return violake.disposableFrom(() -> {
             // TODO
             target.setOnCheckedChangeListener(null);
         });

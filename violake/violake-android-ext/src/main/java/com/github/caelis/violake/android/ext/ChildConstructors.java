@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.caelis.arse.android.ext.R;
+import com.github.caelis.violake.android.ext.R;
 
 import javax.annotation.Nullable;
 

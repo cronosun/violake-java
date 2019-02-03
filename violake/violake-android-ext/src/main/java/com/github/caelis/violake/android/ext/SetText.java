@@ -2,10 +2,10 @@ package com.github.caelis.violake.android.ext;
 
 import android.widget.TextView;
 
-import com.github.caelis.arse.android.Event;
-import com.github.caelis.arse.core.Disposable;
-import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Violake;
+import com.github.caelis.violake.android.Event;
+import com.github.caelis.violake.core.Disposable;
+import com.github.caelis.violake.android.Applicator;
+import com.github.caelis.violake.android.Violake;
 
 import javax.annotation.Nullable;
 
@@ -22,13 +22,13 @@ public final class SetText implements Applicator<TextView, CharSequence> {
     }
 
     @Override
-    public Disposable apply(Violake arse, Event event, TextView target, CharSequence data) {
-        arse.traceOperation(this, target, data, "compare");
+    public Disposable apply(Violake violake, Event event, TextView target, CharSequence data) {
+        violake.traceOperation(this, target, data, "compare");
         if (!areEqual(target.getText(), data)) {
-            arse.traceOperation(this, target, data, "set text");
+            violake.traceOperation(this, target, data, "set text");
             target.setText(data);
         }
-        return arse.emptyDisposable();
+        return violake.emptyDisposable();
     }
 
     private boolean areEqual(@Nullable CharSequence a, CharSequence b) {

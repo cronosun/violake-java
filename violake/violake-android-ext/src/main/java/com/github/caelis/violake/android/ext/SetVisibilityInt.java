@@ -2,10 +2,10 @@ package com.github.caelis.violake.android.ext;
 
 import android.view.View;
 
-import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.Event;
-import com.github.caelis.arse.android.Violake;
-import com.github.caelis.arse.core.Disposable;
+import com.github.caelis.violake.android.Applicator;
+import com.github.caelis.violake.android.Event;
+import com.github.caelis.violake.android.Violake;
+import com.github.caelis.violake.core.Disposable;
 
 public final class SetVisibilityInt implements Applicator<View, Integer> {
 
@@ -19,12 +19,12 @@ public final class SetVisibilityInt implements Applicator<View, Integer> {
     }
 
     @Override
-    public Disposable apply(Violake arse, Event event, View target, Integer data) {
+    public Disposable apply(Violake violake, Event event, View target, Integer data) {
         int currentVisibility = target.getVisibility();
         if (currentVisibility != data) {
-            arse.traceOperation(this, target, data, "set visibility");
+            violake.traceOperation(this, target, data, "set visibility");
             target.setVisibility(data);
         }
-        return arse.emptyDisposable();
+        return violake.emptyDisposable();
     }
 }

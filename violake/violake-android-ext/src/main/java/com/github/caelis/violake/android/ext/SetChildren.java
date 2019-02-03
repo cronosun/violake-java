@@ -3,12 +3,12 @@ package com.github.caelis.violake.android.ext;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.caelis.arse.android.Applicator;
-import com.github.caelis.arse.android.DiffApplicator;
-import com.github.caelis.arse.android.Event;
-import com.github.caelis.arse.android.Violake;
-import com.github.caelis.arse.android.ext.R;
-import com.github.caelis.arse.core.Disposable;
+import com.github.caelis.violake.android.Applicator;
+import com.github.caelis.violake.android.DiffApplicator;
+import com.github.caelis.violake.android.Event;
+import com.github.caelis.violake.android.Violake;
+import com.github.caelis.violake.android.ext.R;
+import com.github.caelis.violake.core.Disposable;
 
 import javax.annotation.Nullable;
 
@@ -55,7 +55,7 @@ public class SetChildren<TChild extends View, TChildData> implements
 
     @Override
     public boolean hasChanged(
-            Violake arse,
+            Violake violake,
             ViewGroup viewGroup, Iterable<? extends TChildData> data) {
         Object existingData = viewGroup.getTag(R.id.set_children_view_group_data);
         return existingData == null || !existingData.equals(data);
