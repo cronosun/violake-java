@@ -70,4 +70,12 @@ public abstract class ToDoItem {
             return Objects.hash(text, creationDate, completed, delete, complete);
         }
     }
+
+    public static final class Pending extends ToDoItem {
+
+        public static final Pending INSTANCE = new Pending();
+
+        private Pending() {
+        }
+    }
 }

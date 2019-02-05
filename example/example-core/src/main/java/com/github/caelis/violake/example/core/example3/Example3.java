@@ -26,6 +26,10 @@ public final class Example3 {
         items.add(new ToDoItem.Task("Do something today", "Now", false, () -> {
         }, () -> {
         }));
+        items.add(ToDoItem.Pending.INSTANCE);
+        items.add(new ToDoItem.Task("Another TODO Item", "2019-02-25", true, () -> {
+        }, () -> {
+        }));
         this.items.onNext(items);
     }
 }

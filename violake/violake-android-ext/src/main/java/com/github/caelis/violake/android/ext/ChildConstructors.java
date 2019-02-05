@@ -4,8 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.caelis.violake.android.ext.R;
-
 import javax.annotation.Nullable;
 
 import androidx.annotation.LayoutRes;
@@ -15,11 +13,11 @@ final class ChildConstructors {
     private ChildConstructors() {
     }
 
-    static <T extends View> ChildConstructor<T> simple(SimpleChildConstructor<T> simple) {
+    static <T extends View> ViewConstructor<T> simple(SimpleViewConstructor<T> simple) {
         return new Simple<>(simple);
     }
 
-    static class Inflater<T extends View> extends DefaultChildConstructor<T> {
+    static class Inflater<T extends View> extends DefaultViewConstructor<T> {
 
         Inflater(@LayoutRes int resource) {
             this.resource = resource;
@@ -56,11 +54,11 @@ final class ChildConstructors {
         }
     }
 
-    private static class Simple<T extends View> extends DefaultChildConstructor<T> {
+    private static class Simple<T extends View> extends DefaultViewConstructor<T> {
 
-        private final SimpleChildConstructor<T> simple;
+        private final SimpleViewConstructor<T> simple;
 
-        private Simple(SimpleChildConstructor<T> simple) {
+        private Simple(SimpleViewConstructor<T> simple) {
             this.simple = simple;
         }
 
@@ -76,8 +74,8 @@ final class ChildConstructors {
         }
     }
 
-    private static abstract class DefaultChildConstructor<T extends View>
-            implements ChildConstructor<T> {
+    private static abstract class DefaultViewConstructor<T extends View>
+            implements ViewConstructor<T> {
 
         protected abstract T constructInternal(ViewGroup parent);
 

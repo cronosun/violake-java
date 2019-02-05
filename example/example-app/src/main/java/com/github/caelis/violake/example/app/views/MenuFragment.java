@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.caelis.violake.android.Violake;
+import com.github.caelis.violake.android.ext.SetChildren;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.core.MenuEntries;
 import com.github.caelis.violake.example.core.MenuEntriesProvider;
 import com.github.caelis.violake.example.core.MenuEntry;
 import com.github.caelis.violake.example.core.MenuId;
-import com.github.caelis.violake.android.ext.SetChildren;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
