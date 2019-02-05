@@ -16,5 +16,11 @@ public interface ViolakeCore {
     @CheckReturnValue
     Disposable emptyDisposable();
 
+    /**
+     * Post given item on violake thread. If this is called on the violake thread,
+     * the {@link Runnable} is allowed to be executed immediately.
+     */
+    void post(Runnable runnable);
+
     boolean isDebugMode();
 }

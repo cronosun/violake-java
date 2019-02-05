@@ -1,5 +1,7 @@
 package com.github.caelis.violake.android.std;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 import com.github.caelis.violake.android.Applicator;
@@ -11,11 +13,22 @@ import org.reactivestreams.Publisher;
 import java.util.ArrayList;
 import java.util.List;
 
+import java8.util.Objects;
+
 public class StdViolake implements Violake {
+
+    private final long mainThreadId;
+    private final Handler mainHandler;
+
+    public StdViolake() {
+        Looper mainLooper = Looper.getMainLooper();
+        mainThreadId = mainLooper.getThread().getId();
+        mainHandler = new Handler(mainLooper);
+    }
 
     @Override
     public <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ?extends TData> applicator,
+            Applicator<? extends TTarget, ? extends TData> applicator,
             TTarget target,
             Publisher<? extends TData> stream) {
         return Companion.companionFor(this, target).apply(applicator, stream);
@@ -23,7 +36,7 @@ public class StdViolake implements Violake {
 
     @Override
     public <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ?extends TData> applicator,
+            Applicator<? extends TTarget, ? extends TData> applicator,
             TTarget target,
             TData data) {
         return Companion.companionFor(this, target).apply(applicator, data);
@@ -81,6 +94,15 @@ public class StdViolake implements Violake {
     @Override
     public Disposable emptyDisposable() {
         return EmptyDisposable.INSTANCE;
+    }
+
+    @Override
+    public void post(Runnable runnable) {
+        if (Objects.requireNonNull(Looper.myLooper()).getThread().getId() == mainThreadId) {
+            runnable.run();
+        } else {
+            mainHandler.post(runnable);
+        }
     }
 
     @Override

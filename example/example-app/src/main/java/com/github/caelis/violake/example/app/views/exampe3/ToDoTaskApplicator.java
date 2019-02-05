@@ -1,17 +1,20 @@
 package com.github.caelis.violake.example.app.views.exampe3;
 
+import android.widget.ImageButton;
+
 import com.github.caelis.violake.android.Applicator;
 import com.github.caelis.violake.android.Event;
 import com.github.caelis.violake.android.Violake;
-import com.github.caelis.violake.core.Disposable;
-import com.github.caelis.violake.example.core.example3.ToDoItem;
 import com.github.caelis.violake.android.ext.GetClick;
 import com.github.caelis.violake.android.ext.SetEnabled;
 import com.github.caelis.violake.android.ext.SetText;
 import com.github.caelis.violake.android.ext.SetVisibility;
 import com.github.caelis.violake.android.ext.Visibility;
+import com.github.caelis.violake.core.Disposable;
+import com.github.caelis.violake.example.core.example3.Action;
+import com.github.caelis.violake.example.core.example3.TodoViewItem;
 
-public final class ToDoTaskApplicator implements Applicator<ToDoTaskView, ToDoItem.Task> {
+public final class ToDoTaskApplicator implements Applicator<ToDoTaskView, TodoViewItem.Task> {
 
     private ToDoTaskApplicator() {
     }
@@ -27,35 +30,32 @@ public final class ToDoTaskApplicator implements Applicator<ToDoTaskView, ToDoIt
             Violake violake,
             Event event,
             ToDoTaskView target,
-            ToDoItem.Task data) {
+            TodoViewItem.Task data) {
 
-        final Disposable alwaysDisposable = violake.chain(
+        return violake.chain(
                 violake.apply(SetText.get(), target.getTitle(), data.getText()),
                 violake.apply(SetText.get(), target.getCreated(), data.getCreationDate()),
                 violake.apply(SetVisibility.get(), target.getDoneImage(), data.isCompleted()
                         ? Visibility.VISIBLE : Visibility.INVISIBLE),
                 violake.apply(SetVisibility.get(), target.getNotDoneImage(), data.isCompleted()
                         ? Visibility.INVISIBLE : Visibility.VISIBLE),
-                violake.apply(SetEnabled.get(), target.getDelete(), data.getDelete() != null),
-                violake.apply(SetEnabled.get(), target.getComplete(), data.getComplete() != null)
+
+                configureAction(violake, data, Action.ADD, target.getAdd()),
+                configureAction(violake, data, Action.DELETE, target.getDelete()),
+                configureAction(violake, data, Action.COMPLETE, target.getComplete())
         );
+    }
 
-        final Disposable deleteDisposable;
-        if (target.getDelete() != null) {
-            deleteDisposable = violake.apply(GetClick.get(), target.getDelete(),
-                    () -> data.getDelete().run());
+    private Disposable configureAction(
+            Violake violake, TodoViewItem.Task data, Action action, ImageButton button) {
+        boolean isAvailable = data.getAvailableActions().contains(action);
+        if (isAvailable) {
+            return violake.chain(
+                    violake.apply(SetEnabled.get(), button, true),
+                    violake.apply(GetClick.get(), button,
+                            () -> data.getPerformAction().accept(action)));
         } else {
-            deleteDisposable = violake.emptyDisposable();
+            return violake.apply(SetEnabled.get(), button, false);
         }
-
-        final Disposable completeDisposable;
-        if (target.getDelete() != null) {
-            completeDisposable = violake.apply(GetClick.get(), target.getComplete(),
-                    () -> data.getComplete().run());
-        } else {
-            completeDisposable = violake.emptyDisposable();
-        }
-
-        return violake.chain(alwaysDisposable, deleteDisposable, completeDisposable);
     }
 }

@@ -92,6 +92,15 @@
             android:layout_marginEnd="8dp"
             android:tint="?android:attr/colorControlNormal"
             android:src="@drawable/ic_check_box_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/example3_add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:tint="?android:attr/colorControlNormal"
+            android:src="@drawable/ic_add_box_black_24dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

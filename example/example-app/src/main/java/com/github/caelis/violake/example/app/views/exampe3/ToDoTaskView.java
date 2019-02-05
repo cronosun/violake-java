@@ -19,6 +19,7 @@ public class ToDoTaskView extends CardView {
     private TextView created;
     private ImageButton delete;
     private ImageButton complete;
+    private ImageButton add;
 
     private ImageView doneImage;
     private ImageView notDoneImage;
@@ -42,8 +43,11 @@ public class ToDoTaskView extends CardView {
         LayoutInflater.from(context).inflate(R.layout.example3_todo_task, this);
         this.title = findViewById(R.id.example3_item_title);
         this.created = findViewById(R.id.example3_created_at);
+
         this.delete = findViewById(R.id.example3_delete_button);
         this.complete = findViewById(R.id.example3_done_button);
+        this.add = findViewById(R.id.example3_add_button);
+
         this.doneImage = findViewById(R.id.example3_completed_icon);
         this.notDoneImage = findViewById(R.id.example3_not_done_icon);
     }
@@ -62,6 +66,10 @@ public class ToDoTaskView extends CardView {
 
     public ImageButton getComplete() {
         return complete;
+    }
+
+    public ImageButton getAdd() {
+        return add;
     }
 
     public ImageView getDoneImage() {
