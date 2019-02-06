@@ -94,4 +94,16 @@ public abstract class TodoViewItem {
             return Objects.hash(text);
         }
     }
+
+    public static final class Adding extends TodoViewItem {
+        private final ToDoItem.Adding adding;
+
+        public Adding(ToDoItem.Adding adding) {
+            this.adding = adding;
+        }
+
+        public ToDoItem.Adding getAdding() {
+            return adding;
+        }
+    }
 }

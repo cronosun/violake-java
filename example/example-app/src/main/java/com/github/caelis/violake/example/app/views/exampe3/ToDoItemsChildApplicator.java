@@ -21,11 +21,15 @@ public final class ToDoItemsChildApplicator {
             ToDoTaskApplicator.get(), parent -> new ToDoTaskView(parent.getContext()));
     private static final Recipe<ToDoPendingView, TodoViewItem.Pending> PENDING = new Recipe<>(
             ToDoPendingApplicator.get(), parent -> new ToDoPendingView(parent.getContext()));
+    private static final Recipe<ToDoAddingView, TodoViewItem.Adding> ADDING = new Recipe<>(
+            TodoAddingApplicator.get(), parent -> new ToDoAddingView(parent.getContext()));
+
 
     private static SetChildren<View, TodoViewItem> create() {
         RecipeSelectorBuilder<View, TodoViewItem> builder = RecipeSelector.builder();
         builder.match(TodoViewItem.Task.class, TASK);
         builder.match(TodoViewItem.Pending.class, PENDING);
+        builder.match(TodoViewItem.Adding.class, ADDING);
         return SetChildren.fromSelector(builder.build());
     }
 
