@@ -13,8 +13,6 @@ import org.reactivestreams.Publisher;
 import java.util.ArrayList;
 import java.util.List;
 
-import java8.util.Objects;
-
 public class StdViolake implements Violake {
 
     private final long mainThreadId;
@@ -98,7 +96,7 @@ public class StdViolake implements Violake {
 
     @Override
     public void post(Runnable runnable) {
-        if (Objects.requireNonNull(Looper.myLooper()).getThread().getId() == mainThreadId) {
+        if (Thread.currentThread().getId() == mainThreadId) {
             runnable.run();
         } else {
             mainHandler.post(runnable);

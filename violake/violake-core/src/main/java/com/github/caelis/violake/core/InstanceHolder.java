@@ -1,7 +1,4 @@
-package com.github.caelis.violake.android;
-
-import com.github.caelis.violake.android.std.StdViolake;
-import com.github.caelis.violake.core.ViolakeCore;
+package com.github.caelis.violake.core;
 
 import javax.annotation.Nullable;
 
@@ -12,27 +9,24 @@ final class InstanceHolder {
     static InstanceHolder INSTANCE = new InstanceHolder();
 
     @Nullable
-    private Violake violake;
+    private ViolakeCore violake;
     private final Object lock = new Object();
 
-    public void set(Violake violake) {
+    public void set(ViolakeCore violake) {
         synchronized (lock) {
             this.violake = violake;
         }
     }
 
-    public Violake require() {
-        Violake value = this.violake;
+    public ViolakeCore require() {
+        ViolakeCore value = this.violake;
         if (value == null) {
             synchronized (lock) {
                 value = this.violake;
             }
         }
         if (value == null) {
-            final Violake fallback = new StdViolake();
-            ViolakeCore.set(fallback);
-            set(fallback);
-            return fallback;
+            throw new IllegalStateException("No violake core configured");
         } else {
             return value;
         }

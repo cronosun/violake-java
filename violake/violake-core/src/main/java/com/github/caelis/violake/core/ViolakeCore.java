@@ -23,4 +23,12 @@ public interface ViolakeCore {
     void post(Runnable runnable);
 
     boolean isDebugMode();
+
+    static ViolakeCore get() {
+        return InstanceHolder.INSTANCE.require();
+    }
+
+    static void set(ViolakeCore core) {
+        InstanceHolder.INSTANCE.set(core);
+    }
 }
