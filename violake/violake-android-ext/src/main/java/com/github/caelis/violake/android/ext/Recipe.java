@@ -16,23 +16,23 @@ import com.github.caelis.violake.android.Applicator;
 public final class Recipe<TChild extends View, TChildData> implements
         RecipeSelector<TChild, TChildData> {
 
-    private final Applicator<? extends TChild, ? extends TChildData> applicator;
+    private final Applicator< TChild, TChildData> applicator;
     private final ViewConstructor<? extends TChild> constructor;
 
     public Recipe(
-            Applicator<? extends TChild, ? extends TChildData> applicator,
+            Applicator<TChild, TChildData> applicator,
             ViewConstructor<? extends TChild> constructor) {
         this.applicator = applicator;
         this.constructor = constructor;
     }
 
     public Recipe(
-            Applicator<? extends TChild, ? extends TChildData> applicator,
+            Applicator<TChild, TChildData> applicator,
             SimpleViewConstructor<? extends TChild> constructor) {
         this(applicator, ViewConstructor.simple(constructor));
     }
 
-    public Applicator<? extends TChild, ? extends TChildData> getApplicator() {
+    public Applicator<TChild, TChildData> getApplicator() {
         return applicator;
     }
 

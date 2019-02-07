@@ -20,24 +20,24 @@ public interface Violake extends ViolakeCore {
 
     @CheckReturnValue
     <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ? extends TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             Publisher<? extends TData> stream);
 
     @CheckReturnValue
     <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ? extends TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             TData data);
 
     <TTarget extends View, TData> void traceOperation(
-            Applicator<TTarget, TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             TData data,
             String text);
 
     <TTarget extends View, TData> void traceOperation(
-            Applicator<TTarget, TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             String text);
 

@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 28
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 24
         targetSdkVersion 28
     }
     buildTypes {
@@ -22,4 +22,7 @@ dependencies {
     api project(':violake:violake-core')
     api project(':violake:violake-android')
     compileOnly "androidx.annotation:annotation:1.0.1"
+    compileOnly 'androidx.appcompat:appcompat:1.0.0-beta01'
+    compileOnly 'androidx.constraintlayout:constraintlayout:1.1.2'
+    compileOnly 'com.google.android.material:material:1.0.0-rc01'
 }

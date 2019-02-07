@@ -26,7 +26,7 @@ public class StdViolake implements Violake {
 
     @Override
     public <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ? extends TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             Publisher<? extends TData> stream) {
         return Companion.companionFor(this, target).apply(applicator, stream);
@@ -34,7 +34,7 @@ public class StdViolake implements Violake {
 
     @Override
     public <TTarget extends View, TData> Disposable apply(
-            Applicator<? extends TTarget, ? extends TData> applicator,
+            Applicator<? super TTarget, TData> applicator,
             TTarget target,
             TData data) {
         return Companion.companionFor(this, target).apply(applicator, data);
@@ -110,12 +110,12 @@ public class StdViolake implements Violake {
 
 
     @Override
-    public <TTarget extends View, TData> void traceOperation(Applicator<TTarget, TData> applicator, TTarget tTarget, TData data, String text) {
+    public <TTarget extends View, TData> void traceOperation(Applicator<? super TTarget, TData> applicator, TTarget tTarget, TData data, String text) {
 
     }
 
     @Override
-    public <TTarget extends View, TData> void traceOperation(Applicator<TTarget, TData> applicator, TTarget tTarget, String text) {
+    public <TTarget extends View, TData> void traceOperation(Applicator<? super TTarget, TData> applicator, TTarget tTarget, String text) {
 
     }
 
