@@ -1,13 +1,13 @@
 package com.github.caelis.violake.example.app.views.exampe3;
 
-import com.github.caelis.violake.android.Applicator;
-import com.github.caelis.violake.android.Event;
-import com.github.caelis.violake.android.Violake;
-import com.github.caelis.violake.android.ext.GetClick;
-import com.github.caelis.violake.android.ext.GetText;
-import com.github.caelis.violake.android.ext.SetEditorText;
-import com.github.caelis.violake.android.ext.SetEnabled;
-import com.github.caelis.violake.core.Disposable;
+import com.github.cronosun.violake.android.Applicator;
+import com.github.cronosun.violake.android.Event;
+import com.github.cronosun.violake.android.Violake;
+import com.github.cronosun.violake.android.ext.GetClick;
+import com.github.cronosun.violake.android.ext.GetText;
+import com.github.cronosun.violake.android.ext.SetEditorText;
+import com.github.cronosun.violake.android.ext.SetEnabled;
+import com.github.cronosun.violake.core.Disposable;
 import com.github.caelis.violake.example.core.example3.TodoViewItem;
 
 public class TodoAddingApplicator implements Applicator<ToDoAddingView, TodoViewItem.Adding> {

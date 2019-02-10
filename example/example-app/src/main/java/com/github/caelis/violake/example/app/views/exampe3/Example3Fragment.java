@@ -3,7 +3,7 @@ package com.github.caelis.violake.example.app.views.exampe3;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.caelis.violake.android.Violake;
+import com.github.cronosun.violake.android.Violake;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.app.views.ExampleFragment;
 import com.github.caelis.violake.example.core.example3.Example3;

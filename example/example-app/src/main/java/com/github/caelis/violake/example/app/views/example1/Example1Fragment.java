@@ -5,14 +5,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.caelis.violake.android.Violake;
+import com.github.cronosun.violake.android.Violake;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.app.views.ExampleFragment;
 import com.github.caelis.violake.example.core.example1.Example1;
-import com.github.caelis.violake.android.ext.GetClick;
-import com.github.caelis.violake.android.ext.SetText;
-import com.github.caelis.violake.android.ext.SetVisibility;
-import com.github.caelis.violake.android.ext.Visibility;
+import com.github.cronosun.violake.android.ext.GetClick;
+import com.github.cronosun.violake.android.ext.SetText;
+import com.github.cronosun.violake.android.ext.SetVisibility;
+import com.github.cronosun.violake.android.ext.Visibility;
 
 import io.reactivex.Flowable;
 

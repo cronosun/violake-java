@@ -2,10 +2,10 @@ package com.github.caelis.violake.example.app.views.exampe3;
 
 import android.view.View;
 
-import com.github.caelis.violake.android.ext.Recipe;
-import com.github.caelis.violake.android.ext.RecipeSelector;
-import com.github.caelis.violake.android.ext.RecipeSelectorBuilder;
-import com.github.caelis.violake.android.ext.SetChildren;
+import com.github.cronosun.violake.android.ext.Recipe;
+import com.github.cronosun.violake.android.ext.RecipeSelector;
+import com.github.cronosun.violake.android.ext.RecipeSelectorBuilder;
+import com.github.cronosun.violake.android.ext.SetChildren;
 import com.github.caelis.violake.example.core.example3.TodoViewItem;
 
 public final class ToDoItemsChildApplicator {

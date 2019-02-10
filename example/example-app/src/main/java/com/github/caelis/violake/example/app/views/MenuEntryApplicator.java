@@ -3,14 +3,14 @@ package com.github.caelis.violake.example.app.views;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.github.caelis.violake.android.Event;
-import com.github.caelis.violake.android.Violake;
-import com.github.caelis.violake.core.Disposable;
+import com.github.cronosun.violake.android.Event;
+import com.github.cronosun.violake.android.Violake;
+import com.github.cronosun.violake.core.Disposable;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.core.MenuEntry;
-import com.github.caelis.violake.android.ext.GetClick;
-import com.github.caelis.violake.android.ext.SetText;
-import com.github.caelis.violake.android.ext.StatefulApplicator;
+import com.github.cronosun.violake.android.ext.GetClick;
+import com.github.cronosun.violake.android.ext.SetText;
+import com.github.cronosun.violake.android.ext.StatefulApplicator;
 
 import androidx.annotation.Nullable;
 

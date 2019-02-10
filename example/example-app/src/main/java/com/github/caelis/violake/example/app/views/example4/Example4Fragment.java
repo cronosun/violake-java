@@ -2,7 +2,7 @@ package com.github.caelis.violake.example.app.views.example4;
 
 import android.view.View;
 
-import com.github.caelis.violake.android.Violake;
+import com.github.cronosun.violake.android.Violake;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.app.views.ExampleFragment;
 import com.github.caelis.violake.example.core.example4.Example4Model;

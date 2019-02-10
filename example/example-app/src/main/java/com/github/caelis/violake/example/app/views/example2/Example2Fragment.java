@@ -5,14 +5,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.github.caelis.violake.android.Violake;
+import com.github.cronosun.violake.android.Violake;
 import com.github.caelis.violake.example.app.R;
 import com.github.caelis.violake.example.app.views.ExampleFragment;
 import com.github.caelis.violake.example.core.example2.Example2;
-import com.github.caelis.violake.android.ext.GetChecked;
-import com.github.caelis.violake.android.ext.GetClick;
-import com.github.caelis.violake.android.ext.SetChecked;
-import com.github.caelis.violake.android.ext.SetText;
+import com.github.cronosun.violake.android.ext.GetChecked;
+import com.github.cronosun.violake.android.ext.GetClick;
+import com.github.cronosun.violake.android.ext.SetChecked;
+import com.github.cronosun.violake.android.ext.SetText;
 
 public class Example2Fragment extends ExampleFragment {
 

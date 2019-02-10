@@ -2,15 +2,15 @@ package com.github.caelis.violake.example.app.views.exampe3;
 
 import android.widget.ImageButton;
 
-import com.github.caelis.violake.android.Applicator;
-import com.github.caelis.violake.android.Event;
-import com.github.caelis.violake.android.Violake;
-import com.github.caelis.violake.android.ext.GetClick;
-import com.github.caelis.violake.android.ext.SetEnabled;
-import com.github.caelis.violake.android.ext.SetText;
-import com.github.caelis.violake.android.ext.SetVisibility;
-import com.github.caelis.violake.android.ext.Visibility;
-import com.github.caelis.violake.core.Disposable;
+import com.github.cronosun.violake.android.Applicator;
+import com.github.cronosun.violake.android.Event;
+import com.github.cronosun.violake.android.Violake;
+import com.github.cronosun.violake.android.ext.GetClick;
+import com.github.cronosun.violake.android.ext.SetEnabled;
+import com.github.cronosun.violake.android.ext.SetText;
+import com.github.cronosun.violake.android.ext.SetVisibility;
+import com.github.cronosun.violake.android.ext.Visibility;
+import com.github.cronosun.violake.core.Disposable;
 import com.github.caelis.violake.example.core.example3.Action;
 import com.github.caelis.violake.example.core.example3.TodoViewItem;
 

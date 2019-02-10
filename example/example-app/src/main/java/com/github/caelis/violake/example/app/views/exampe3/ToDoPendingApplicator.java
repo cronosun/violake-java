@@ -1,10 +1,10 @@
 package com.github.caelis.violake.example.app.views.exampe3;
 
-import com.github.caelis.violake.android.Applicator;
-import com.github.caelis.violake.android.Event;
-import com.github.caelis.violake.android.Violake;
-import com.github.caelis.violake.android.ext.SetText;
-import com.github.caelis.violake.core.Disposable;
+import com.github.cronosun.violake.android.Applicator;
+import com.github.cronosun.violake.android.Event;
+import com.github.cronosun.violake.android.Violake;
+import com.github.cronosun.violake.android.ext.SetText;
+import com.github.cronosun.violake.core.Disposable;
 import com.github.caelis.violake.example.core.example3.TodoViewItem;
 
 public final class ToDoPendingApplicator implements Applicator<ToDoPendingView, TodoViewItem.Pending> {

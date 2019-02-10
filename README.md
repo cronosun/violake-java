@@ -10,4 +10,4 @@ Utilities that simplify writing android applications using reactive streams.
 
 # TODO
 
- * Change package from caelis to cronosun
+ * Much...
