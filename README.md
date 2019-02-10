@@ -8,6 +8,14 @@ Utilities that simplify writing android applications using reactive streams.
  * Write parts of your application without android dependencies (the application core): This simplifies testing and code reuse.
  * The only dependencies you need for your application core are `violake-core` and ReactiveStreams from [http://www.reactive-streams.org/](http://www.reactive-streams.org/)
 
+## Example
+
+See `/example`.
+
+### Screens
+
+![example screens](https://thumbs.gfycat.com/OblongAmbitiousDuiker-small.gif "Example Screens")
+
 # TODO
 
  * Much...
