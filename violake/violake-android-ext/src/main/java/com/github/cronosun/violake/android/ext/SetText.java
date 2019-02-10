@@ -2,10 +2,10 @@ package com.github.cronosun.violake.android.ext;
 
 import android.widget.TextView;
 
-import com.github.cronosun.violake.android.Event;
-import com.github.cronosun.violake.core.Disposable;
 import com.github.cronosun.violake.android.Applicator;
+import com.github.cronosun.violake.android.Event;
 import com.github.cronosun.violake.android.Violake;
+import com.github.cronosun.violake.core.Disposable;
 
 public final class SetText implements Applicator<TextView, CharSequence> {
 
@@ -24,7 +24,7 @@ public final class SetText implements Applicator<TextView, CharSequence> {
         violake.traceOperation(this, target, data, "compare");
         if (!StringCharSeqCmp.areEqual(target.getText(), data, MAX_LEN_CMP)) {
             violake.traceOperation(this, target, data, "set text");
-            target.setText(data);
+            GetSetTextUtils.setText(target, data);
         }
         return violake.emptyDisposable();
     }

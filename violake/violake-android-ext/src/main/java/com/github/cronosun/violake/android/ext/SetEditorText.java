@@ -7,8 +7,6 @@ import com.github.cronosun.violake.android.Event;
 import com.github.cronosun.violake.android.Violake;
 import com.github.cronosun.violake.core.Disposable;
 
-import javax.annotation.Nullable;
-
 /**
  * Similar to {@link SetText} but optimized for {@link EditText} (for example never applies text
  * when the same text is already in the view and tries to keep selection).
@@ -27,7 +25,7 @@ public final class SetEditorText implements Applicator<EditText, CharSequence> {
     @Override
     public Disposable apply(Violake violake, Event event, EditText target, CharSequence data) {
         violake.traceOperation(this, target, data, "compare");
-        if (!areEqual(target.getText(), data)) {
+        if (!StringCharSeqCmp.areEqual(target.getText(), data, Integer.MAX_VALUE)) {
             violake.traceOperation(this, target, data, "set text");
             return doApply(violake, target, data);
         }
@@ -60,31 +58,9 @@ public final class SetEditorText implements Applicator<EditText, CharSequence> {
         }
 
 
-        target.setText(data);
+        GetSetTextUtils.setText(target, data);
         target.setSelection(newSelectionStart, newSelectionEnd);
 
         return violake.emptyDisposable();
-    }
-
-    private boolean areEqual(@Nullable CharSequence a, CharSequence b) {
-        if (a == b) {
-            return true;
-        }
-        if (a == null) {
-            return false;
-        }
-        final int length = a.length();
-        if (length != b.length()) {
-            return false;
-        }
-        if (length == 0) {
-            return true;
-        }
-        for (int i = 0; i < length; i++) {
-            if (a.charAt(i) != b.charAt(i)) {
-                return false;
-            }
-        }
-        return true;
     }
 }

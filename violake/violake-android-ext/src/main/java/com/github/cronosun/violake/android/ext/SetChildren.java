@@ -41,7 +41,7 @@ public class SetChildren<TChild extends View, TChildData> implements
             Event event,
             ViewGroup target,
             Iterable<? extends TChildData> data) {
-        target.setTag(R.id.set_children_view_group_data, data);
+        target.setTag(R.id.violake_ext_set_children_view_group_data, data);
 
         Disposable disposable = violake.emptyDisposable();
         int numberOfChildren = 0;
@@ -64,7 +64,7 @@ public class SetChildren<TChild extends View, TChildData> implements
     public boolean hasChanged(
             Violake violake,
             ViewGroup viewGroup, Iterable<? extends TChildData> data) {
-        Object existingData = viewGroup.getTag(R.id.set_children_view_group_data);
+        Object existingData = viewGroup.getTag(R.id.violake_ext_set_children_view_group_data);
         return existingData == null || !existingData.equals(data);
     }
 

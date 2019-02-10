@@ -2,11 +2,11 @@ package com.github.cronosun.violake.android.ext;
 
 import android.view.ViewGroup;
 
-public final class ChildLimiter {
+final class ChildLimiter {
     private ChildLimiter() {
     }
 
-    public static void removeAllChildrenBut(ViewGroup view, int numberOfChildrenToKeep) {
+    static void removeAllChildrenBut(ViewGroup view, int numberOfChildrenToKeep) {
         while (view.getChildCount() > numberOfChildrenToKeep) {
             removeLastChild(view);
         }

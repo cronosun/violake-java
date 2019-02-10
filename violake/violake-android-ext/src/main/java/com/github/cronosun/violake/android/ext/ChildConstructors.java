@@ -84,7 +84,7 @@ final class ChildConstructors {
             final T view = constructInternal(parent);
             Object discriminator = discriminator();
             if (discriminator != null) {
-                view.setTag(R.id.child_constructor_constructed_by, discriminator);
+                view.setTag(R.id.violake_ext_child_constructor_constructed_by, discriminator);
             }
             return view;
         }
@@ -94,7 +94,7 @@ final class ChildConstructors {
             // has been constructed by myself?
             if (existingChild != null) {
                 final Object existingDiscriminator = existingChild.getTag(
-                        R.id.child_constructor_constructed_by);
+                        R.id.violake_ext_child_constructor_constructed_by);
                 if (existingDiscriminator != null) {
                     final Object thisDiscriminator = discriminator();
                     if (existingDiscriminator.equals(thisDiscriminator)) {
