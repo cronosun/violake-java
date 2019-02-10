@@ -124,7 +124,13 @@ public final class Example4Model {
     }
 
     public Publisher<Boolean> canSubmit() {
-        // TODO
-        return firstName.map(s -> s.isPresent() && !s.get().isEmpty());
+        return Flowable.combineLatest(firstName, lastName, eMail, includePhone, phone,
+                (firstName, lastName, eMail, includePhone, phone) ->
+                        firstName.isPresent() && lastName.isPresent() && eMail.isPresent() &&
+                                (!includePhone || phone.isPresent()));
+    }
+
+    public void submit() {
+        // Currently does nothing
     }
 }

@@ -22,6 +22,11 @@ public interface ViolakeCore {
      */
     void post(Runnable runnable);
 
+    /**
+     * Post given item on violake thread after some delay.
+     */
+    void postDelayed(int delayMs, Runnable runnable);
+
     boolean isDebugMode();
 
     static ViolakeCore get() {

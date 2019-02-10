@@ -1,5 +1,7 @@
 package com.github.caelis.violake.example.core.example4;
 
+import com.github.cronosun.violake.core.ViolakeCore;
+
 import org.reactivestreams.Publisher;
 
 import java.util.Optional;
@@ -55,12 +57,28 @@ public final class Example4Service {
     }
 
     /**
+     * Submit the data. Returns an empty string if everything is OK or a string containing some
+     * error (e.g. validation).
+     * <p>
+     * Note: In a real application you'd use something more sophisticated than just an
+     * optional string.
+     */
+    public Publisher<Optional<String>> submit(
+            String firstName,
+            String lastName,
+            String eMail,
+            @Nullable String phoneNumber) {
+        // takes some time
+        return crossValidation(firstName, lastName, eMail, phoneNumber);
+    }
+
+    /**
      * Maybe validation for one field is not enough ... maybe add more validation.
      * <p>
      * Again: Returns a publisher, since this might invoke a function on a remote
      * server (or a database).
      */
-    public Publisher<Optional<String>> crossValidation(
+    private Publisher<Optional<String>> crossValidation(
             String firstName,
             String lastName,
             String eMail,

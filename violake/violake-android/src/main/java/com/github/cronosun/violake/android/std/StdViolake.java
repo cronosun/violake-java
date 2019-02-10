@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.github.cronosun.violake.android.Applicator;
 import com.github.cronosun.violake.android.Violake;
-import com.github.cronosun.violake.android.Violake;
 import com.github.cronosun.violake.core.Disposable;
 
 import org.reactivestreams.Publisher;
@@ -102,6 +101,11 @@ public class StdViolake implements Violake {
         } else {
             mainHandler.post(runnable);
         }
+    }
+
+    @Override
+    public void postDelayed(int delayMs, Runnable runnable) {
+        mainHandler.postDelayed(runnable, delayMs);
     }
 
     @Override

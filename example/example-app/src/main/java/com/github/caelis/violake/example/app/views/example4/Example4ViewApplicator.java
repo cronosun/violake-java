@@ -1,5 +1,6 @@
 package com.github.caelis.violake.example.app.views.example4;
 
+import com.github.caelis.violake.example.core.example4.Example4Model;
 import com.github.cronosun.violake.android.Applicator;
 import com.github.cronosun.violake.android.Event;
 import com.github.cronosun.violake.android.Violake;
@@ -15,7 +16,6 @@ import com.github.cronosun.violake.android.ext.SetVisibility;
 import com.github.cronosun.violake.android.ext.Visibility;
 import com.github.cronosun.violake.core.Disposable;
 import com.github.cronosun.violake.core.Unit;
-import com.github.caelis.violake.example.core.example4.Example4Model;
 
 import io.reactivex.Flowable;
 
@@ -61,7 +61,8 @@ public final class Example4ViewApplicator implements Applicator<Example4View, Ex
                 // reset
                 violake.apply(GetClick.get(), target.getReset(), data::reset),
                 // submit
-                violake.apply(SetEnabled.get(), target.getSubmit(), data.canSubmit())
+                violake.apply(SetEnabled.get(), target.getSubmit(), data.canSubmit()),
+                violake.apply(GetClick.get(), target.getSubmit(), data::submit)
         );
     }
 }

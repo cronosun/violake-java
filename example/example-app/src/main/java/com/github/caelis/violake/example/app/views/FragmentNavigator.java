@@ -5,6 +5,7 @@ import com.github.caelis.violake.example.app.views.exampe3.Example3Fragment;
 import com.github.caelis.violake.example.app.views.example1.Example1Fragment;
 import com.github.caelis.violake.example.app.views.example2.Example2Fragment;
 import com.github.caelis.violake.example.app.views.example4.Example4Fragment;
+import com.github.caelis.violake.example.app.views.example5.Example5Fragment;
 import com.github.caelis.violake.example.core.MenuEntriesProvider;
 import com.github.caelis.violake.example.core.MenuId;
 
@@ -29,6 +30,7 @@ public final class FragmentNavigator {
         local.put(MenuEntriesProvider.EXAMPLE2, Example2Fragment::new);
         local.put(MenuEntriesProvider.EXAMPLE3, Example3Fragment::new);
         local.put(MenuEntriesProvider.EXAMPLE4, Example4Fragment::new);
+        local.put(MenuEntriesProvider.EXAMPLE5, Example5Fragment::new);
 
         fragments = local;
     }

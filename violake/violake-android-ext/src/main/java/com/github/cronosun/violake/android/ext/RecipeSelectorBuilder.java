@@ -13,6 +13,9 @@ public final class RecipeSelectorBuilder<TChild extends View, TChildData> {
     @Nullable
     private List<Entry<TChild, TChildData>> entries;
 
+    RecipeSelectorBuilder() {
+    }
+
     public RecipeSelectorBuilder<TChild, TChildData> match(
             Predicate<TChildData> predicate, Recipe<TChild, TChildData> recipe) {
         return match(new Entry<>(predicate, recipe));

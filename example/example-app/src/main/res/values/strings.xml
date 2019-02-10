@@ -17,4 +17,8 @@
     <string name="phone_number">Phone Number</string>
     <string name="reset">Reset</string>
     <string name="submit">Submit</string>
+    <string name="show_text_with_action">Show Text With Action</string>
+    <string name="show_image_with_action">Show Image With Action</string>
+    <string name="example5_intro_text">Here you can see an image and an action button. See what happens when you click the button!</string>
+    <string name="perform_action">Perform Action!</string>
 </resources>

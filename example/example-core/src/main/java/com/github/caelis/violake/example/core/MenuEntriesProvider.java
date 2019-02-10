@@ -9,6 +9,7 @@ public final class MenuEntriesProvider {
     public static final MenuId EXAMPLE2 = new MenuId("example2");
     public static final MenuId EXAMPLE3 = new MenuId("example3");
     public static final MenuId EXAMPLE4 = new MenuId("example4");
+    public static final MenuId EXAMPLE5 = new MenuId("example5");
 
     public static MenuEntries createMenuEntries(MenuChangeHandler handler) {
         MenuEntries.Builder builder = new MenuEntries.Builder();
@@ -25,6 +26,9 @@ public final class MenuEntriesProvider {
         builder.add(new MenuEntry("Ex 4: Form & Validation",
                 "A simple form with validation.",
                 () -> handler.goToMenu(EXAMPLE4)));
+        builder.add(new MenuEntry("Ex 5: Layout Switching",
+                "Demonstrates switching layouts (views).",
+                () -> handler.goToMenu(EXAMPLE5)));
         return builder.build();
     }
 

@@ -13,6 +13,9 @@ import javax.annotation.Nullable;
 
 import androidx.annotation.LayoutRes;
 
+/**
+ * Applicator that can set 0-n children to {@link ViewGroup}.
+ */
 public class SetChildren<TChild extends View, TChildData> implements
         DiffApplicator<ViewGroup, Iterable<? extends TChildData>> {
 

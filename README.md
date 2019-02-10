@@ -11,3 +11,39 @@ Utilities that simplify writing android applications using reactive streams.
 # TODO
 
  * Much...
+ 
+# Questions and Answers
+
+## Data from view is not observable?
+
+Why do you use publisher when providing data to GUI but do not use publishers when getting data from a view?
+
+For example set text:
+
+```java
+public final class SetText implements Applicator<TextView, CharSequence> {
+    // <...>
+}
+```
+
+You usually apply text like this:
+
+```java
+Publisher<String> textPublisher = /* ... */;
+apply(SetText.get(), view, publisher);
+```
+
+... but when getting the text you provide a function:
+
+```java
+  void receiveChangedText(String text) {
+    
+    
+  }
+  
+  apply(GetText.get(), view, this::receiveChangedText);  
+```
+
+**Answer**
+
+TODO
